@@ -1,0 +1,14 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y openjdk-8-jdk --yes
+
+RUN mkdir /output
+
+WORKDIR /app
+
+ADD Main.java .
+
+RUN javac Main.java
+
+CMD ["java", "Main" ]
+
